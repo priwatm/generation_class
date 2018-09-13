@@ -1,7 +1,4 @@
-
-
-
-function generatePasswords(template, number) {
+function generatePasswords() {
     var chars = {}
     chars['l'] = 'abcdefghijklmnoprstuvwxyz';
     chars['U'] = chars['l'].toUpperCase();
@@ -11,13 +8,12 @@ function generatePasswords(template, number) {
     chars['C'] = chars['c'].toUpperCase();
     chars['9'] = '0123456789';
     chars['#'] = '!@#$%^&*_-+=()[]{}';
-    chars['a'] = chars['l'] + chars['9'] + chars['l'].toUpperCase() ;
+    chars['a'] = chars['l'] + chars['9'] + chars['l'].toUpperCase();
     chars['A'] = chars['a'].toUpperCase();
-
+    var template = 'Cvccvc99';
     var i, c, possible;
-
     var passwords = [];
-    for (i = 0; i < number; i++) {
+    for (i = 0; i < 1; i++) {
         password = '';
         var array = new Uint8Array(template.length)
         window.crypto.getRandomValues(array);
@@ -27,19 +23,5 @@ function generatePasswords(template, number) {
         }
         passwords.push(password);
     }
-
-    return passwords;
+    document.getElementById('passwords').innerHTML = password;
 }
-
-function doPasswords() {
-      $('#passwords li').remove();
-    var template = 'Cvccvc99';
-  passwords = generatePasswords(template, 1);
-
-  var passwordlist = $("ul#passwords");
-  $.each(passwords, function(i, password) {
-      passwordlist.append($("<li>").text(password));
-  });
-  mixpanel.track("Generated passwords");
-}
-
