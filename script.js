@@ -1,7 +1,3 @@
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-57622-11']);
-_gaq.push(['_trackPageview']);
-
 
 
 (function() {
